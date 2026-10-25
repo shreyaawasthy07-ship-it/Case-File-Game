@@ -1,0 +1,1529 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    background: #000;
+
+    color: white;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    background-image:
+        url("character-bg.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    z-index: 0;
+}
+
+
+/* =========================================
+   DARK OVERLAY
+========================================= */
+
+.overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.48);
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   VIGNETTE
+========================================= */
+
+.vignette {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 20%,
+            rgba(0, 0, 0, 0.45) 65%,
+            rgba(0, 0, 0, 0.90) 100%
+        );
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   TOP HEADER
+========================================= */
+
+.top-header {
+
+    position: fixed;
+
+    top: 25px;
+
+    left: 35px;
+    right: 35px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    z-index: 10;
+
+    font-family: monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(255, 255, 255, 0.55);
+
+    line-height: 1.5;
+}
+
+
+.agency span {
+
+    display: block;
+
+    font-size: 8px;
+
+    color:
+        rgba(255, 255, 255, 0.32);
+}
+
+
+.agency strong {
+
+    display: block;
+
+    color: #9c0000;
+
+    font-size: 8px;
+}
+
+
+.camera {
+
+    text-align: right;
+}
+
+
+.camera span {
+
+    color: #888;
+}
+
+
+/* =========================================
+   DARK MODE BUTTON
+========================================= */
+
+.mode-control {
+
+    position: fixed;
+
+    top: 90px;
+
+    right: 35px;
+
+    z-index: 20;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-family: monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #777;
+}
+
+
+.mode-control button {
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.3);
+
+    background:
+        rgba(0, 0, 0, 0.65);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+
+.mode-control button:hover {
+
+    border-color: white;
+
+    box-shadow:
+        0 0 15px
+        rgba(255, 255, 255, 0.3);
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.identity-screen {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.heading {
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    z-index: 10;
+}
+
+
+.classified-title {
+
+    font-family: monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 6px;
+
+    color: #888;
+
+    margin-bottom: 12px;
+}
+
+
+.heading h1 {
+
+    font-size:
+        clamp(38px, 4.5vw, 65px);
+
+    font-weight: 400;
+
+    letter-spacing: 7px;
+
+    line-height: 0.95;
+
+    color: #ddd;
+}
+
+
+.heading h1 span {
+
+    display: block;
+
+    color: #980000;
+
+    margin-top: 8px;
+}
+
+
+.instruction {
+
+    margin-top: 14px;
+
+    font-family: monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #666;
+}
+
+
+/* =========================================
+   CHARACTERS AREA
+========================================= */
+
+.characters {
+
+    width:
+        min(1000px, 95vw);
+
+    height: 58vh;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    margin-top: -5px;
+}
+
+
+/* =========================================
+   CHARACTER WRAPPER
+========================================= */
+
+.character-wrapper {
+
+    position: relative;
+
+    width: 44%;
+
+    height: 100%;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+/* =========================================
+   SUBJECT INFORMATION
+========================================= */
+
+.subject-code {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 15px;
+
+    z-index: 15;
+
+    font-family: monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    line-height: 1.6;
+
+    color:
+        rgba(255, 255, 255, 0.35);
+}
+
+
+.subject-code span {
+
+    color: #666;
+}
+
+
+/* =========================================
+   CHARACTER
+========================================= */
+
+.character {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 0;
+
+    transform:
+        translateX(-50%);
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+}
+
+
+/* =========================================
+   CHARACTER IMAGE
+========================================= */
+
+.character img {
+
+    width: auto;
+
+    height: 100%;
+
+    max-width: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    /*
+       Initially almost completely
+       hidden in black shadow.
+    */
+
+    filter:
+        brightness(0.08)
+        contrast(1.25)
+        saturate(0);
+
+    opacity: 0.70;
+
+    transition:
+        filter 0.8s ease,
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.character-wrapper:hover {
+
+    transform:
+        translateY(-5px);
+}
+
+
+.character-wrapper:hover
+.character img {
+
+    filter:
+        brightness(0.45)
+        contrast(1.3)
+        saturate(0);
+
+    opacity: 0.90;
+
+    transform:
+        scale(1.02);
+}
+
+
+/* =========================================
+   SELECTED CHARACTER
+========================================= */
+
+.character-wrapper.selected
+.character img {
+
+    filter:
+        brightness(1.25)
+        contrast(1.1)
+        saturate(0)
+        drop-shadow(
+            0 0 8px
+            rgba(255, 255, 255, 0.95)
+        )
+        drop-shadow(
+            0 0 25px
+            rgba(255, 255, 255, 0.75)
+        )
+        drop-shadow(
+            0 0 55px
+            rgba(255, 255, 255, 0.45)
+        );
+
+    opacity: 1;
+
+    transform:
+        scale(1.035);
+}
+
+
+/* =========================================
+   OTHER CHARACTER BECOMES DARKER
+========================================= */
+
+.characters.has-selection
+.character-wrapper:not(.selected)
+.character img {
+
+    filter:
+        brightness(0.025)
+        contrast(1.3)
+        saturate(0);
+
+    opacity: 0.30;
+}
+
+
+/* =========================================
+   CHARACTER NAME
+========================================= */
+
+.character-name {
+
+    position: absolute;
+
+    bottom: 8px;
+
+    left: 0;
+    right: 0;
+
+    text-align: center;
+
+    z-index: 20;
+}
+
+
+.character-name h2 {
+
+    font-size: 25px;
+
+    font-weight: 400;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 10px;
+
+    color: #ddd;
+}
+
+
+/* =========================================
+   SELECT BUTTON
+========================================= */
+
+.select-button {
+
+    padding:
+        10px 32px;
+
+    background:
+        rgba(0, 0, 0, 0.78);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.25);
+
+    color: #aaa;
+
+    font-family: monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    cursor: pointer;
+
+    transition:
+        all 0.3s ease;
+}
+
+
+.select-button span {
+
+    margin-left: 10px;
+
+    font-size: 13px;
+}
+
+
+.character-wrapper:hover
+.select-button {
+
+    color: white;
+
+    border-color:
+        rgba(255, 255, 255, 0.75);
+}
+
+
+.character-wrapper.selected
+.select-button {
+
+    background: white;
+
+    color: black;
+
+    border-color: white;
+
+    box-shadow:
+        0 0 20px
+        rgba(255, 255, 255, 0.45);
+}
+
+
+/* =========================================
+   BOTTOM BAR
+========================================= */
+
+.bottom-bar {
+
+    position: fixed;
+
+    bottom: 18px;
+
+    left: 30px;
+    right: 30px;
+
+    z-index: 10;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-family: monospace;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(255, 255, 255, 0.30);
+}
+
+
+/* =========================================
+   CONFIRMATION
+========================================= */
+
+.confirmation {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.97);
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.7s ease;
+}
+
+
+.confirmation.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.confirmation-box {
+
+    text-align: center;
+
+    font-family: monospace;
+
+    letter-spacing: 3px;
+}
+
+
+.confirmation-box p {
+
+    color: #999;
+
+    font-size: 9px;
+}
+
+
+.confirmation-box h2 {
+
+    margin: 20px 0;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 55px;
+
+    font-weight: 400;
+
+    letter-spacing: 10px;
+}
+
+
+.loading-line {
+
+    width: 250px;
+
+    height: 1px;
+
+    background: #333;
+
+    margin: 20px auto;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+.loading-line::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: white;
+
+    transform:
+        translateX(-100%);
+
+    animation:
+        loading 2s linear forwards;
+}
+
+
+@keyframes loading {
+
+    to {
+        transform:
+            translateX(0);
+    }
+
+}
+
+
+.confirmation-box span {
+
+    color: #555;
+
+    font-size: 8px;
+}
+
+
+/* =========================================
+   DARKER MODE
+========================================= */
+
+body.darker .overlay {
+
+    background:
+        rgba(0, 0, 0, 0.70);
+}
+
+
+body.darker .background {
+
+    filter:
+        brightness(0.65)
+        contrast(1.2);
+}
+
+
+body.darker .vignette {
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(0, 0, 0, 0.20) 10%,
+            rgba(0, 0, 0, 0.75) 65%,
+            rgba(0, 0, 0, 0.98) 100%
+        );
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .top-header {
+
+        top: 15px;
+
+        left: 15px;
+        right: 15px;
+    }
+
+
+    .mode-control {
+
+        top: 65px;
+
+        right: 15px;
+    }
+
+
+    .heading h1 {
+
+        font-size: 34px;
+
+        letter-spacing: 4px;
+    }
+
+
+    .instruction {
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .characters {
+
+        height: 55vh;
+
+        width: 100%;
+    }
+
+
+    .character-wrapper {
+
+        width: 50%;
+    }
+
+
+    .character img {
+
+        height: 85%;
+    }
+
+
+    .character-name h2 {
+
+        font-size: 18px;
+
+        letter-spacing: 5px;
+    }
+
+
+    .character-name button {
+
+        padding:
+            8px 18px;
+
+        font-size: 8px;
+    }
+
+
+    .bottom-bar span:nth-child(2) {
+
+        display: none;
+    }
+
+}
+/* ========================================
+   IDENTITY CARD OVERLAY
+======================================== */
+
+.identity-card-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        rgba(0, 0, 0, 0.82);
+
+    backdrop-filter:
+        blur(8px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.5s ease,
+        visibility 0.5s ease;
+}
+
+
+/* SHOW CARD */
+
+.identity-card-overlay.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+/* ========================================
+   CARD
+======================================== */
+
+.identity-card {
+
+    width: min(760px, 92vw);
+
+    min-height: 400px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(28, 28, 28, 0.98),
+            rgba(8, 8, 8, 0.98)
+        );
+
+    border:
+
+        1px solid
+        rgba(255, 255, 255, 0.25);
+
+    box-shadow:
+
+        0 0 0 1px
+        rgba(255, 255, 255, 0.03),
+
+        0 30px 100px
+        rgba(0, 0, 0, 0.8),
+
+        0 0 40px
+        rgba(255, 255, 255, 0.05);
+
+    transform:
+        translateY(30px)
+        scale(0.96);
+
+    transition:
+        transform 0.6s ease;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+/* CARD ANIMATION */
+
+.identity-card-overlay.active
+.identity-card {
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+/* ========================================
+   CARD HEADER
+======================================== */
+
+.card-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    padding: 22px 28px 18px;
+
+}
+
+
+.card-agency span {
+
+    display: block;
+
+    font-family:
+        "Oswald",
+        sans-serif;
+
+    font-size: 18px;
+
+    letter-spacing: 3px;
+
+    color: white;
+
+}
+
+
+.card-agency small {
+
+    display: block;
+
+    margin-top: 5px;
+
+    font-family:
+        "Oswald",
+        sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(255,255,255,0.4);
+
+}
+
+
+.card-classified {
+
+    font-family:
+        "Oswald",
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(255,255,255,0.45);
+
+}
+
+
+/* ========================================
+   RED LINE
+======================================== */
+
+.card-line {
+
+    height: 1px;
+
+    width: 100%;
+
+    background:
+        rgba(255, 255, 255, 0.15);
+
+    position: relative;
+}
+
+
+.card-line::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 28px;
+
+    top: 0;
+
+    width: 80px;
+
+    height: 1px;
+
+    background:
+        rgba(255, 70, 70, 0.8);
+
+}
+
+
+/* ========================================
+   CARD CONTENT
+======================================== */
+
+.card-content {
+
+    display: flex;
+
+    gap: 35px;
+
+    padding: 32px 35px;
+
+}
+
+
+/* ========================================
+   PHOTO
+======================================== */
+
+.card-photo {
+
+    width: 190px;
+
+    height: 230px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    border:
+
+        1px solid
+        rgba(255,255,255,0.2);
+
+    background: #050505;
+
+    position: relative;
+
+}
+
+
+.card-photo::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 65%,
+            rgba(0,0,0,0.6)
+        );
+
+}
+
+
+.card-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: top center;
+
+    filter:
+        grayscale(0.8)
+        contrast(1.15)
+        brightness(0.8);
+
+}
+
+
+/* ========================================
+   DETAILS
+======================================== */
+
+.card-details {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+
+.card-label {
+
+    margin: 0 0 5px;
+
+    font-family:
+        "Oswald",
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(255,255,255,0.4);
+
+}
+
+
+.card-details h2 {
+
+    margin: 0 0 14px;
+
+    font-family:
+        "Cinzel",
+        serif;
+
+    font-size: 30px;
+
+    font-weight: 500;
+
+    letter-spacing: 3px;
+
+    color: white;
+
+}
+
+
+/* ========================================
+   STATUS
+======================================== */
+
+.card-status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 28px;
+
+    font-family:
+        "Oswald",
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(255,255,255,0.45);
+
+}
+
+
+.status-dot {
+
+    width: 6px;
+
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #b44;
+
+    box-shadow:
+        0 0 8px rgba(255,70,70,0.5);
+
+}
+
+
+/* ========================================
+   NAME
+======================================== */
+
+.name-label {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    font-family:
+        "Oswald",
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(255,255,255,0.5);
+
+}
+
+
+#playerName {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 13px 15px;
+
+    background:
+        rgba(255,255,255,0.04);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.25);
+
+    outline: none;
+
+    color: white;
+
+    font-family:
+        "Oswald",
+        sans-serif;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    transition: 0.3s;
+
+}
+
+
+#playerName::placeholder {
+
+    color:
+        rgba(255,255,255,0.2);
+
+}
+
+
+#playerName:focus {
+
+    border-color:
+        rgba(255,255,255,0.7);
+
+    background:
+        rgba(255,255,255,0.07);
+
+    box-shadow:
+        0 0 20px
+        rgba(255,255,255,0.06);
+
+}
+
+
+/* ========================================
+   ERROR
+======================================== */
+
+.name-error {
+
+    display: none;
+
+    margin: 7px 0 0;
+
+    font-family:
+        "Oswald",
+        sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color:
+        #d45a5a;
+
+}
+
+
+.name-error.show {
+
+    display: block;
+
+}
+
+
+/* ========================================
+   CONFIRM BUTTON
+======================================== */
+
+.confirm-button {
+
+    align-self: flex-start;
+
+    margin-top: 20px;
+
+    padding: 12px 18px;
+
+    background: transparent;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
+
+    color: white;
+
+    font-family:
+        "Oswald",
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.confirm-button span {
+
+    margin-left: 12px;
+
+}
+
+
+.confirm-button:hover {
+
+    background: white;
+
+    color: black;
+
+    border-color: white;
+
+}
+
+
+.confirm-button:disabled {
+
+    cursor: default;
+
+    opacity: 0.8;
+
+}
+
+
+/* ========================================
+   CARD FOOTER
+======================================== */
+
+.card-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 13px 28px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.1);
+
+    font-family:
+        "Oswald",
+        sans-serif;
+
+    font-size: 7px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(255,255,255,0.3);
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 650px) {
+
+    .identity-card {
+
+        width: 94vw;
+
+    }
+
+    .card-content {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 22px;
+
+        padding: 25px;
+
+    }
+
+    .card-photo {
+
+        width: 130px;
+
+        height: 160px;
+
+    }
+
+    .card-details {
+
+        width: 100%;
+
+    }
+
+    .card-details h2 {
+
+        font-size: 24px;
+
+    }
+
+    .card-footer {
+
+        font-size: 6px;
+
+        gap: 8px;
+
+    }
+
+}

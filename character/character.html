@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Grey District — Choose Character</title>
+
+    <link rel="stylesheet" href="character.css">
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background"></div>
+
+    <!-- Dark overlay -->
+    <div class="overlay"></div>
+
+    <!-- Vignette -->
+    <div class="vignette"></div>
+
+
+    <!-- TOP HEADER -->
+
+    <header class="top-header">
+
+        <div class="agency">
+            GREY DISTRICT
+
+            <span>
+                REGIONAL INVESTIGATION DIRECTORATE
+            </span>
+
+            <strong>
+                CLASSIFIED
+            </strong>
+        </div>
+
+
+        <div class="camera">
+            CAM 01<br>
+            IDENTITY ROOM<br>
+
+            <span id="clock">
+                23:47:12
+            </span>
+        </div>
+
+    </header>
+
+
+    <!-- DARK / DARKER BUTTON -->
+
+    <div class="mode-control">
+
+        <span id="modeLabel">
+            DARK
+        </span>
+
+        <button id="modeButton">
+            ◐
+        </button>
+
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="identity-screen">
+
+
+        <!-- HEADING -->
+
+        <div class="heading">
+
+            <p class="classified-title">
+                IDENTITY REQUIRED
+            </p>
+
+            <h1>
+                CHOOSE YOUR
+                <span>CHARACTER</span>
+            </h1>
+
+            <p class="instruction">
+                SELECT THE IDENTITY YOU WILL ENTER THE DISTRICT AS.
+            </p>
+
+        </div>
+
+
+        <!-- CHARACTERS -->
+
+        <section class="characters">
+
+
+            <!-- MALE -->
+
+            <div
+                class="character-wrapper"
+                id="maleWrapper"
+            >
+
+                <div class="subject-code">
+    IDENTITY<br>
+    <span>MALE</span>
+</div>
+
+
+                <div class="character">
+
+                    <img
+                        src="male-neutral.png"
+                        alt="Male Character"
+                    >
+
+                </div>
+
+
+                <div class="character-name">
+
+                    <h2>MALE</h2>
+
+                    <button class="select-button">
+                        SELECT
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FEMALE -->
+
+            <div
+                class="character-wrapper"
+                id="femaleWrapper"
+            >
+
+                <<div class="subject-code">
+    IDENTITY<br>
+    <span>FEMALE</span>
+</div>
+
+
+                <div class="character">
+
+                    <img
+                        src="female-neutral.png"
+                        alt="Female Character"
+                    >
+
+                </div>
+
+
+                <div class="character-name">
+
+                    <h2>FEMALE</h2>
+
+                    <button class="select-button">
+                        SELECT
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- BOTTOM INFORMATION -->
+
+    <div class="bottom-bar">
+
+        <span>
+            47 UNSOLVED CASES
+        </span>
+
+        <span>
+            IDENTITY VERIFICATION REQUIRED
+        </span>
+
+        <span>
+            DIRECTORATE DATABASE // 2026
+        </span>
+
+    </div>
+
+
+    <!-- CONFIRMATION SCREEN -->
+
+  <!-- =====================================
+     IDENTITY CARD
+====================================== -->
+
+<div
+    class="identity-card-overlay"
+    id="confirmation">
+
+    <div class="identity-card">
+
+        <!-- CARD HEADER -->
+
+        <div class="card-header">
+
+            <div class="card-agency">
+
+                <span>
+                    GREY DISTRICT
+                </span>
+
+                <small>
+                    REGIONAL INVESTIGATION DIRECTORATE
+                </small>
+
+            </div>
+
+            <div class="card-classified">
+                CLASSIFIED
+            </div>
+
+        </div>
+
+
+        <!-- RED LINE -->
+
+        <div class="card-line"></div>
+
+
+        <!-- CARD CONTENT -->
+
+        <div class="card-content">
+
+
+            <!-- CHARACTER PHOTO -->
+
+            <div class="card-photo">
+
+                <img
+                    id="cardCharacterImage"
+                    src="male-neutral.png"
+                    alt="Selected Character">
+
+            </div>
+
+
+            <!-- IDENTITY DETAILS -->
+
+            <div class="card-details">
+
+                <p class="card-label">
+                    IDENTITY RECORD
+                </p>
+
+                <h2 id="selectedIdentity">
+                    MALE
+                </h2>
+
+
+                <div class="card-status">
+
+                    <span class="status-dot"></span>
+
+                    IDENTITY PENDING
+
+                </div>
+
+
+                <!-- NAME -->
+
+                <label
+                    for="playerName"
+                    class="name-label">
+
+                    ENTER YOUR NAME
+
+                </label>
+
+
+                <input
+                    type="text"
+                    id="playerName"
+                    placeholder="YOUR NAME"
+                    maxlength="20"
+                    autocomplete="off">
+
+
+                <!-- ERROR -->
+
+                <p
+                    id="nameError"
+                    class="name-error">
+
+                    NAME REQUIRED
+
+                </p>
+
+
+                <!-- CONFIRM -->
+
+                <button
+                    id="confirmIdentity"
+                    class="confirm-button"
+                    type="button">
+
+                    CONFIRM IDENTITY
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD FOOTER -->
+
+        <div class="card-footer">
+
+            <span>
+                SUBJECT VERIFICATION
+            </span>
+
+            <span id="subjectNumber">
+                SUBJECT 01
+            </span>
+
+            <span>
+                GREY DISTRICT // 2026
+            </span>
+
+        </div>
+
+    </div>
+<!-- GAME AUDIO -->
+<audio
+    id="gameMusic"
+    src="../background-music.mp3"
+    loop
+    preload="auto">
+</audio>
+<audio
+    id="selectSound"
+    src="../select-click.mp3"
+    preload="auto">
+</audio>
+
+    <script src="character.js"></script>
+
+</body>
+
+</html>

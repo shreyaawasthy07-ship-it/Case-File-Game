@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>The Grey District</title>
+
+
+    <!-- =========================
+         FONTS
+    ========================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Oswald:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =========================
+         CSS
+    ========================== -->
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HOMEPAGE
+    ========================== -->
+
+    <main class="homepage">
+
+
+        <!-- BACKGROUND -->
+
+        <div class="background"></div>
+
+        <div class="dark-overlay"></div>
+
+
+        <!-- =========================
+             TOP HEADER
+        ========================== -->
+
+        <div class="top-header">
+
+            <span>
+                REGIONAL INVESTIGATION DIRECTORATE
+            </span>
+
+            <span class="red-slashes">
+                //
+            </span>
+
+            <span>
+                CLASSIFIED
+            </span>
+
+        </div>
+
+
+        <!-- RED LINE -->
+
+        <div class="top-red-line"></div>
+
+
+        <!-- =========================
+             CAMERA INFORMATION
+        ========================== -->
+
+        <div class="camera-info">
+
+            <div>
+                CAM 01
+                <span class="record-dot"></span>
+            </div>
+
+            <div>
+                MAIN GATE
+            </div>
+
+            <div id="cameraTime">
+                23:47:12
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             SIREN AUDIO
+        ========================== -->
+<audio id="sirenSound" loop preload="auto">
+    <source src="siren.mp3" type="audio/mpeg">
+</audio>
+        <!-- =========================
+             MAIN TITLE
+        ========================== -->
+
+        <section class="title-section">
+
+
+            <!-- THE -->
+
+            <div class="the-text">
+                THE
+            </div>
+
+
+            <!-- GREY DISTRICT -->
+
+            <h1>
+                GREY DISTRICT
+            </h1>
+
+
+            <!-- CASE COUNT -->
+
+            <div class="cases">
+
+                <span class="case-number">
+                    47
+                </span>
+
+                <span>
+                    UNSOLVED CASES
+                </span>
+
+            </div>
+
+
+            <!-- SUBTITLE -->
+
+            <div class="subtitle">
+
+                6 YEARS WITHOUT A
+                FUNCTIONING POLICE UNIT
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             ENTER BUTTON
+        ========================== -->
+
+      <a href="../CHARACTER/character.html"
+   id="enterButton"
+   class="enter-button">
+    <span>ENTER THE DISTRICT</span>
+    <span>→</span>
+</a>
+
+        <!-- =========================
+             BOTTOM INFORMATION
+        ========================== -->
+
+        <div class="bottom-info">
+
+            <span>
+                CLASSIFIED FILES
+            </span>
+
+            <span class="separator">
+                |
+            </span>
+
+            <span>
+                RESTRICTED ACCESS
+            </span>
+
+            <span class="separator">
+                |
+            </span>
+
+            <span>
+                GOVERNMENT DIRECTIVE
+            </span>
+
+            <span class="separator">
+                |
+            </span>
+
+            <span>
+                REGION: GREY DISTRICT
+            </span>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         HOMEPAGE JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        const enterButton =
+            document.getElementById("enterButton");
+
+        const siren =
+            document.getElementById("sirenSound");
+
+
+        enterButton.addEventListener("click", function(event) {
+
+            event.preventDefault();
+
+
+            /* =========================
+               PLAY SIREN
+            ========================== */
+
+            siren.volume = 1.0;
+
+            siren.currentTime = 0;
+
+
+            const playPromise = siren.play();
+
+
+            if (playPromise !== undefined) {
+
+                playPromise
+                    .then(function() {
+
+                        /*
+                         * Siren plays for 1.2 seconds.
+                         */
+
+                        setTimeout(function() {
+
+                            siren.pause();
+
+                            siren.currentTime = 0;
+
+
+                            /*
+                             * Go to Character Page
+                             */
+
+                            window.location.href =
+                                "../CHARACTER/character.html";
+
+                        }, 1200);
+
+                    })
+
+                    .catch(function(error) {
+
+                        console.log(
+                            "Siren could not play:",
+                            error
+                        );
+
+
+                        /*
+                         * Even if audio fails,
+                         * still open Character page.
+                         */
+
+                        window.location.href =
+                            "../CHARACTER/character.html";
+
+                    });
+
+            }
+
+        });
+
+    </script>
+
+
+    <!-- =========================
+         YOUR EXISTING JAVASCRIPT
+    ========================== -->
+
+    <script src="style.js"></script>
+
+
+</body>
+
+</html>
