@@ -420,17 +420,12 @@ body {
 
     display: block;
 
-    /*
-       Initially almost completely
-       hidden in black shadow.
-    */
-
     filter:
-        brightness(0.08)
-        contrast(1.25)
-        saturate(0);
+        brightness(1)
+        contrast(1.1)
+        saturate(0.25);
 
-    opacity: 0.70;
+    opacity: 1;
 
     transition:
         filter 0.8s ease,
