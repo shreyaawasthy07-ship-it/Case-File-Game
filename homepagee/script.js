@@ -23,6 +23,6 @@ enterButton.addEventListener("click", function(event) {
     siren.currentTime = 0;
 
     // Go to character page
-    window.location.href = "../CHARACTER/character.html";
+    window.location.href = "../character/character.html";
 
 });

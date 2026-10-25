@@ -336,7 +336,7 @@ confirmIdentity.addEventListener(
             function() {
 
                 window.location.href =
-                    "../STORY/story.html";
+                    "../story/story.html";
 
             },
             1000
