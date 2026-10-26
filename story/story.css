@@ -1486,16 +1486,21 @@ body {
 /* Main carousel area */
 .team-carousel {
     position: absolute;
-    left: 7%;
-    right: 7%;
-    top: 23%;
-    bottom: 18%;
+    left: 50%;
+    top: 52%;
+
+    transform: translate(-50%, -50%);
+
+    width: 82%;
+    height: 55%;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 35px;
+    gap: 25px;
 }
+
+
 
 /* Member card */
 #teamScene .team-member {
@@ -1739,21 +1744,53 @@ body {
         gap: 8px;
     }
 
-    #teamScene .team-member {
-        width: calc(100% - 80px);
-        height: 70vh;
+ /* Main carousel area */
+.team-carousel {
+    position: absolute;
+    left: 50%;
+    top: 52%;
 
-        flex-direction: column;
+    transform: translate(-50%, -50%);
 
-        gap: 18px;
-        padding: 15px;
-    }
+    width: 82%;
+    height: 55%;
 
-    #teamScene .team-image-container {
-        flex: 0 0 48%;
-        width: 100%;
-        height: auto;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+
+/* Smaller centered member card */
+#teamScene .team-member {
+    width: 650px;
+    height: 300px;
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    padding: 20px;
+
+    background: rgba(10,10,10,0.38);
+    border: 1px solid rgba(255,255,255,0.16);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+
+    overflow: hidden;
+}
+  #teamScene .team-image-container {
+    flex: 0 0 35%;
+    height: 100%;
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(0,0,0,0.35);
+}
 
     #teamScene .team-member-info {
         width: 100%;
