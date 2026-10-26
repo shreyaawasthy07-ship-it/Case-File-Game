@@ -310,8 +310,12 @@ function loadTeamMember() {
 
     if (teamProgress) {
         teamProgress.textContent =
-            `${String(teamIndex + 1).padStart(2, "0")} / ${String(teamMembers.length).padStart(2, "0")}`;
-    }
+        `${String(teamIndex + 1).padStart(2, "0")} / ${String(teamMembers.length).padStart(2, "0")}`;
+
+    if (teamPreviousButton) {
+    teamPreviousButton.disabled = teamIndex === 0;
+}    `${String(teamIndex + 1).padStart(2, "0")} / ${String(teamMembers.length).padStart(2, "0")}`;
+} 
 
     if (teamPreviousButton) {
         teamPreviousButton.disabled = teamIndex === 0;

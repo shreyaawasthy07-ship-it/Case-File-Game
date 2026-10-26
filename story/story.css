@@ -2331,3 +2331,102 @@ body {
     right: auto;
     bottom: auto;
 }
+/* ===== TEAM GLASS NAVIGATION ===== */
+
+#teamScene .team-navigation {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
+}
+
+#teamScene .team-nav {
+    min-width: 82px !important;
+    width: auto !important;
+    height: 32px !important;
+
+    padding: 0 11px !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 7px !important;
+
+    box-sizing: border-box !important;
+
+    background: rgba(255,255,255,0.07) !important;
+    border: 1px solid rgba(255,255,255,0.28) !important;
+    border-radius: 6px !important;
+
+    color: rgba(255,255,255,0.78) !important;
+
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.12) !important;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.15s ease !important;
+}
+
+/* ARROW */
+#teamScene .team-nav span {
+    font-size: 13px !important;
+    line-height: 1 !important;
+}
+
+/* TEXT */
+#teamScene .team-nav small {
+    display: inline-block !important;
+    white-space: nowrap !important;
+
+    font-size: 7px !important;
+    letter-spacing: 1.4px !important;
+    line-height: 1 !important;
+}
+
+/* HOVER */
+#teamScene .team-nav:hover {
+    background: rgba(255,255,255,0.13) !important;
+    border-color: rgba(255,255,255,0.45) !important;
+
+    box-shadow:
+        0 0 14px rgba(255,255,255,0.12),
+        0 5px 20px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.18) !important;
+
+    color: white !important;
+
+    transform: translateY(-1px);
+}
+
+/* CLICK */
+#teamScene .team-nav:active {
+    background: rgba(255,255,255,0.18) !important;
+
+    box-shadow:
+        0 0 20px rgba(255,255,255,0.22),
+        inset 0 0 12px rgba(255,255,255,0.08) !important;
+
+    transform: scale(0.96) !important;
+}
+
+/* DISABLED PREVIOUS BUTTON */
+#teamScene .team-nav:disabled {
+    opacity: 0.25 !important;
+    cursor: default !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+/* ===== SHIFT TEAM NAVIGATION LEFT ===== */
+
+#teamScene .team-navigation {
+    transform: translateX(-14px) !important;
+}
