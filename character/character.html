@@ -23,7 +23,6 @@
 
 
     <!-- TOP HEADER -->
-
     <header class="top-header">
 
         <div class="agency">
@@ -52,7 +51,6 @@
 
 
     <!-- DARK / DARKER BUTTON -->
-
     <div class="mode-control">
 
         <span id="modeLabel">
@@ -67,12 +65,9 @@
 
 
     <!-- MAIN CONTENT -->
-
     <main class="identity-screen">
 
-
         <!-- HEADING -->
-
         <div class="heading">
 
             <p class="classified-title">
@@ -92,22 +87,15 @@
 
 
         <!-- CHARACTERS -->
-
         <section class="characters">
 
-
             <!-- MALE -->
-
-            <div
-                class="character-wrapper"
-                id="maleWrapper"
-            >
+            <div class="character-wrapper" id="maleWrapper">
 
                 <div class="subject-code">
-    IDENTITY<br>
-    <span>MALE</span>
-</div>
-
+                    IDENTITY<br>
+                    <span>MALE</span>
+                </div>
 
                 <div class="character">
 
@@ -117,7 +105,6 @@
                     >
 
                 </div>
-
 
                 <div class="character-name">
 
@@ -133,19 +120,13 @@
             </div>
 
 
-
             <!-- FEMALE -->
-
-            <div
-                class="character-wrapper"
-                id="femaleWrapper"
-            >
+            <div class="character-wrapper" id="femaleWrapper">
 
                 <div class="subject-code">
-    IDENTITY<br>
-    <span>FEMALE</span>
-</div>
-
+                    IDENTITY<br>
+                    <span>FEMALE</span>
+                </div>
 
                 <div class="character">
 
@@ -155,7 +136,6 @@
                     >
 
                 </div>
-
 
                 <div class="character-name">
 
@@ -176,7 +156,6 @@
 
 
     <!-- BOTTOM INFORMATION -->
-
     <div class="bottom-bar">
 
         <span>
@@ -194,166 +173,176 @@
     </div>
 
 
-    <!-- CONFIRMATION SCREEN -->
+    <!-- IDENTITY CONFIRMATION -->
 
-  <!-- =====================================
-     IDENTITY CARD
-====================================== -->
+    <div
+        class="identity-card-overlay"
+        id="confirmation"
+    >
 
-<div
-    class="identity-card-overlay"
-    id="confirmation">
+        <div class="identity-card">
 
-    <div class="identity-card">
-
-        <!-- CARD HEADER -->
-
-        <div class="card-header">
-
-            <div class="card-agency">
-
-                <span>
-                    GREY DISTRICT
-                </span>
-
-                <small>
-                    REGIONAL INVESTIGATION DIRECTORATE
-                </small>
-
-            </div>
-
-            <div class="card-classified">
-                CLASSIFIED
-            </div>
-
-        </div>
+            <!-- CLOSE BUTTON -->
+            <button
+                type="button"
+                class="close-identity"
+                id="closeIdentity"
+                aria-label="Change character"
+            >
+                ×
+            </button>
 
 
-        <!-- RED LINE -->
+            <!-- CARD HEADER -->
 
-        <div class="card-line"></div>
+            <div class="card-header">
 
+                <div class="card-agency">
 
-        <!-- CARD CONTENT -->
+                    <span>
+                        GREY DISTRICT
+                    </span>
 
-        <div class="card-content">
+                    <small>
+                        REGIONAL INVESTIGATION DIRECTORATE
+                    </small>
 
+                </div>
 
-            <!-- CHARACTER PHOTO -->
-
-            <div class="card-photo">
-
-                <img
-                    id="cardCharacterImage"
-                    src="male-neutral.png"
-                    alt="Selected Character">
+                <div class="card-classified">
+                    CLASSIFIED
+                </div>
 
             </div>
 
 
-            <!-- IDENTITY DETAILS -->
+            <!-- RED LINE -->
 
-            <div class="card-details">
-
-                <p class="card-label">
-                    IDENTITY RECORD
-                </p>
-
-                <h2 id="selectedIdentity">
-                    MALE
-                </h2>
+            <div class="card-line"></div>
 
 
-                <div class="card-status">
+            <!-- CARD CONTENT -->
 
-                    <span class="status-dot"></span>
+            <div class="card-content">
 
-                    IDENTITY PENDING
+                <!-- CHARACTER PHOTO -->
+
+                <div class="card-photo">
+
+                    <img
+                        id="cardCharacterImage"
+                        src="male-neutral.png"
+                        alt="Selected Character"
+                    >
 
                 </div>
 
 
-                <!-- NAME -->
+                <!-- IDENTITY DETAILS -->
 
-                <label
-                    for="playerName"
-                    class="name-label">
+                <div class="card-details">
 
-                    ENTER YOUR NAME
+                    <p class="card-label">
+                        IDENTITY RECORD
+                    </p>
 
-                </label>
-
-
-                <input
-                    type="text"
-                    id="playerName"
-                    placeholder="YOUR NAME"
-                    maxlength="20"
-                    autocomplete="off">
+                    <h2 id="selectedIdentity">
+                        MALE
+                    </h2>
 
 
-                <!-- ERROR -->
+                    <div class="card-status">
 
-                <p
-                    id="nameError"
-                    class="name-error">
+                        <span class="status-dot"></span>
 
-                    NAME REQUIRED
+                        IDENTITY PENDING
 
-                </p>
+                    </div>
 
 
-                <!-- CONFIRM -->
+                    <!-- NAME -->
 
-                <button
-                    id="confirmIdentity"
-                    class="confirm-button"
-                    type="button">
+                    <label
+                        for="playerName"
+                        class="name-label"
+                    >
+                        ENTER YOUR NAME
+                    </label>
 
-                    CONFIRM IDENTITY
 
-                    <span>
-                        →
-                    </span>
+                    <input
+                        type="text"
+                        id="playerName"
+                        placeholder="YOUR NAME"
+                        maxlength="20"
+                        autocomplete="off"
+                    >
 
-                </button>
+
+                    <!-- ERROR -->
+
+                    <p
+                        id="nameError"
+                        class="name-error"
+                    >
+                        NAME REQUIRED
+                    </p>
+
+
+                    <!-- CONFIRM -->
+
+                    <button
+                        id="confirmIdentity"
+                        class="confirm-button"
+                        type="button"
+                    >
+                        CONFIRM IDENTITY
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- CARD FOOTER -->
+
+            <div class="card-footer">
+
+                <span>
+                    SUBJECT VERIFICATION
+                </span>
+
+                <span id="subjectNumber">
+                    SUBJECT 01
+                </span>
+
+                <span>
+                    GREY DISTRICT // 2026
+                </span>
 
             </div>
 
         </div>
 
-
-        <!-- CARD FOOTER -->
-
-        <div class="card-footer">
-
-            <span>
-                SUBJECT VERIFICATION
-            </span>
-
-            <span id="subjectNumber">
-                SUBJECT 01
-            </span>
-
-            <span>
-                GREY DISTRICT // 2026
-            </span>
-
-        </div>
-
     </div>
-<!-- GAME AUDIO -->
-<audio
-    id="gameMusic"
-    src="../background-music.mp3"
-    loop
-    preload="auto">
-</audio>
-<audio
-    id="selectSound"
-    src="../select-click.mp3"
-    preload="auto">
-</audio>
+
+
+    <!-- GAME AUDIO -->
+
+    <audio
+        id="gameMusic"
+        src="../background-music.mp3"
+        loop
+        preload="auto"
+    ></audio>
+
+    <audio
+        id="selectSound"
+        src="../select-click.mp3"
+        preload="auto"
+    ></audio>
+
 
     <script src="character.js"></script>
 

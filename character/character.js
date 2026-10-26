@@ -21,6 +21,9 @@ const characters =
 const confirmation =
     document.getElementById("confirmation");
 
+const closeIdentity =
+    document.getElementById("closeIdentity");
+
 const selectedIdentity =
     document.getElementById("selectedIdentity");
 
@@ -260,6 +263,40 @@ function chooseCharacter(gender) {
     );
 
 }
+
+
+// ========================================
+// CLOSE IDENTITY CARD
+// ========================================
+
+closeIdentity.addEventListener(
+    "click",
+    function() {
+
+        confirmation.classList.remove(
+            "active"
+        );
+
+        maleWrapper.classList.remove(
+            "selected"
+        );
+
+        femaleWrapper.classList.remove(
+            "selected"
+        );
+
+        characters.classList.remove(
+            "has-selection"
+        );
+
+        selectedCharacter = null;
+        playerName.value = "";
+        nameError.classList.remove(
+            "show"
+        );
+
+    }
+);
 
 
 // ========================================
