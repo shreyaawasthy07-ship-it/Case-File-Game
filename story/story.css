@@ -2307,3 +2307,27 @@ body {
     94% { opacity: 1; }
     96% { opacity: 0.75; }
 }
+/* =========================================================
+   BRIEFING — TEXT ON THE LEFT, SCROLLS ABOVE CONTINUE BUTTON
+   ========================================================= */
+
+.briefing-text {
+    flex: 1;
+    min-height: 0;
+    max-height: none;
+    width: 100%;
+    max-width: none;
+    margin: 20px 0 0;
+    padding: 0 20px 0 0;
+    overflow-y: auto;
+}
+
+.briefing-bottom {
+    flex-shrink: 0;
+}
+
+.briefing-button {
+    position: static;
+    right: auto;
+    bottom: auto;
+}
