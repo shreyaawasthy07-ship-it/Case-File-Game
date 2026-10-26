@@ -21,6 +21,7 @@ const teamCompleteScene = document.getElementById("teamCompleteScene");
 const introContinueButton = document.getElementById("introContinueButton");
 const briefingContinueButton = document.getElementById("briefingContinueButton");
 const beginInvestigation = document.getElementById("beginInvestigation");
+const teamCompleteClose = document.getElementById("teamCompleteClose");
 
 // ------------------------------------------------------------
 // BRIEFING ELEMENTS
@@ -381,6 +382,23 @@ function openTeamComplete() {
 
 
 // ============================================================
+// CLOSE TEAM COMPLETE — BACK TO TEAM MEMBERS
+// ============================================================
+
+function closeTeamComplete() {
+
+    playSelectSound();
+
+    showState(teamScene);
+
+    // Show the last team member again
+    teamIndex = teamMembers.length - 1;
+
+    loadTeamMember();
+}
+
+
+// ============================================================
 // BEGIN INVESTIGATION
 // ============================================================
 
@@ -430,6 +448,14 @@ if (teamPreviousButton) {
     teamPreviousButton.addEventListener(
         "click",
         previousTeamMember
+    );
+}
+
+
+if (teamCompleteClose) {
+    teamCompleteClose.addEventListener(
+        "click",
+        closeTeamComplete
     );
 }
 
