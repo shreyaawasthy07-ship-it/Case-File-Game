@@ -1013,65 +1013,59 @@ body.darker .vignette {
    GLOSSY CLOSE BUTTON
    DO NOT CHANGE
 ================================ */
+/* ================================
+   CLOSE BUTTON — TOP RIGHT
+================================ */
 
 .close-identity {
     position: absolute;
+    top: 14px;
+    right: 14px;
 
-    top: 68px;
-    right: 32px;
-
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
 
     padding: 0;
     margin: 0;
 
     border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.25);
 
-    border: 1px solid rgba(255,255,255,0.28);
-
-    background:
-        radial-gradient(
-            circle at 32% 25%,
-            rgba(255,255,255,0.35) 0%,
-            rgba(255,255,255,0.10) 28%,
-            rgba(45,45,45,0.8) 65%,
-            rgba(10,10,10,0.95) 100%
-        );
+    background: rgba(25, 25, 25, 0.85);
 
     color: #888;
 
     font-family: Arial, sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 300;
-    line-height: 28px;
+    line-height: 29px;
     text-align: center;
 
     cursor: pointer;
 
-    z-index: 50;
+    z-index: 100;
 
     box-shadow:
-        inset 0 1px 2px rgba(255,255,255,0.25),
-        inset 0 -2px 4px rgba(0,0,0,0.6),
-        0 2px 8px rgba(0,0,0,0.45);
+        inset 0 1px 2px rgba(255,255,255,0.12),
+        0 2px 8px rgba(0,0,0,0.5);
 
     transition:
-        color 0.25s ease,
-        border-color 0.25s ease,
-        box-shadow 0.25s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease,
         transform 0.2s ease;
 }
 
 .close-identity:hover {
-    color: #ffffff;
+    color: #fff;
 
-    border-color: rgba(255,255,255,0.7);
+    border-color: rgba(255,255,255,0.65);
+
+    background: rgba(50,50,50,0.95);
 
     box-shadow:
-        inset 0 1px 3px rgba(255,255,255,0.35),
-        inset 0 -2px 4px rgba(0,0,0,0.65),
-        0 0 12px rgba(255,255,255,0.22);
+        0 0 12px rgba(255,255,255,0.18);
 
     transform: scale(1.08);
 }
@@ -1079,8 +1073,6 @@ body.darker .vignette {
 .close-identity:active {
     transform: scale(0.94);
 }
-
-
 /* ================================
    CARD CONTENT
 ================================ */
