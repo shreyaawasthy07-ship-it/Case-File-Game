@@ -225,102 +225,77 @@
         <!-- =====================================
              TEAM INTRODUCTION
         ====================================== -->
+<section id="teamScene" class="story-state">
 
-        <section
-            id="teamScene"
-            class="story-state"
+    <div class="team-intro">
+        <div class="team-label">INVESTIGATION UNIT</div>
+        <h1>YOUR TEAM</h1>
+    </div>
+
+    <div class="team-carousel">
+
+        <button
+            id="teamPreviousButton"
+            class="team-nav team-previous"
+            type="button"
+            aria-label="Previous team member"
         >
+            <span>←</span>
+            <small>PREVIOUS</small>
+        </button>
 
-            <div class="team-intro">
+        <div class="team-member">
 
-               <div class="team-intro">
-    <div class="team-label">INVESTIGATION UNIT</div>
-    <h1>YOUR TEAM</h1>
-</div>
-
-            <div class="team-member">
-
-
-                <div class="team-image-container">
-
-                    <img
-                        id="teamImage"
-                        src="field investigator.png"
-                        alt="Investigation Team Member"
-                    >
-
-                </div>
-
-
-                <div class="team-member-info">
-
-                    <div
-                        id="teamRole"
-                        class="team-role"
-                    >
-                        FIELD INVSETIGATOR
-                    </div>
-
-
-                    <div
-                        id="teamName"
-                        class="team-name"
-                    >
-                        MAYA SHARMA
-                    </div>
-
-
-                    <p
-                        id="teamDescription"
-                        class="team-description"
-                    >
-                        Specialist in field operations,
-                        surveillance and ground investigation.
-                    </p>
-
-                </div>
-
-
-                <div
-                    id="teamDialogue"
-                    class="team-dialogue"
+            <div class="team-image-container">
+                <img
+                    id="teamImage"
+                    src="../field investigator.png"
+                    alt="Investigation Team Member"
                 >
-                    I've spent three years tracking
-                    what happens inside the District.
+            </div>
+
+            <div class="team-member-info">
+
+                <div id="teamRole" class="team-role">
+                    FIELD INVESTIGATOR
                 </div>
 
+                <div id="teamName" class="team-name">
+                    MAYA SHARMA
+                </div>
+
+                <p id="teamDescription" class="team-description">
+                    Specialist in field operations,
+                    surveillance and ground investigation.
+                </p>
+
+                <div id="teamDialogue" class="team-dialogue">
+                    "I've spent three years tracking
+                    what happens inside the District."
+                </div>
 
             </div>
 
+        </div>
 
-            <button
-                id="teamContinueButton"
-                class="continue-button team-continue"
-                type="button"
-            >
+        <button
+            id="teamNextButton"
+            class="team-nav team-next"
+            type="button"
+            aria-label="Next team member"
+        >
+            <small>NEXT</small>
+            <span>→</span>
+        </button>
 
-                <span>
-                    CONTINUE
-                </span>
+    </div>
 
-                <strong>
-                    →
-                </strong>
+    <div id="teamProgress" class="dialogue-progress">
+        01 / 03
+    </div>
 
-            </button>
-
-
-            <div
-                id="teamProgress"
-                class="dialogue-progress"
-            >
-                01 / 03
-            </div>
-
-
-        </section>
-
-
+</section>
+   
         <!-- =====================================
              INVESTIGATION READY
         ====================================== -->
