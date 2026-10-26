@@ -72,7 +72,8 @@ function playSelectSound() {
 // FEWER SCREENS — MORE STORY PER SCREEN
 // ============================================================
 
-const briefingSegments = [
+
+const briefingTexts = [
 
     `Welcome to the Grey District.
 
@@ -80,115 +81,42 @@ You were not chosen because you are the most experienced investigator in the Dir
 
 You were chosen because you are still willing to ask questions that other people stopped asking.
 
-Six years ago, this district became the centre of an investigation that was never allowed to finish.`,
 
-    `The Grey District was once one of the most heavily monitored regions in the country.
+Six years ago, the local police unit collapsed. Officers disappeared from duty, records stopped being maintained, evidence rooms were sealed, and investigations were forgotten.
 
-Then, six years ago, the local police unit collapsed.
 
-Officers disappeared from duty. Records stopped being maintained. Evidence rooms were sealed. Investigations were transferred, delayed, and eventually forgotten.
+Then people began disappearing.
 
-Officially, it was described as an institutional failure.
-
-Unofficially, people inside the Directorate knew there was more to it.`,
-
-    `After the collapse, people began disappearing.
-
-Some were reported missing.
-
-Some were never reported at all.
-
-Families came to the authorities looking for answers and were given paperwork, delays, and silence.
-
-The cases accumulated.
-
-One file became ten.
-
-Ten became twenty.
+Some were reported missing. Some were never reported at all.
 
 Eventually, forty-seven cases remained unresolved.`,
 
-    `What makes these cases different is not simply the number of missing people.
 
-It is what happened to the evidence.
 
-Files were altered.
+`But the real concern is what happened to the evidence.
 
-Statements disappeared.
 
-Evidence logs contained gaps.
+Files were altered. Statements disappeared. Evidence logs contained gaps. Photographs were replaced. Some reports were rewritten.
 
-Some photographs were replaced.
 
-Some reports were rewritten.
-
-And several case records were transferred into archives that officially did not exist.`,
-
-    `For six years, the Grey District remained largely untouched.
-
-No functioning police unit.
-
-No complete investigation.
-
-No official explanation for what happened.
+For six years, the District remained untouched.
 
 Until now.
 
 The government has reopened the investigation under the authority of the Regional Investigation Directorate.
 
-The original case files have been recovered.
+You will lead the investigation with three specialists. Your identity will remain classified, and your movements will be monitored.
 
-The district has been placed under restricted investigation.
+Forty-seven unresolved cases. Six years of missing evidence.
 
-And the forty-seven unsolved cases are being examined again.`,
 
-    `That is where you come in.
-
-You will lead the investigation.
-
-Your identity will remain classified.
-
-Your movements inside the District will be monitored.
-
-You will have access to evidence that was previously sealed.
-
-But understand this clearly:
 
 Someone worked very hard to bury these cases.
 
-And someone may still be working to keep them buried.`,
-
-    `You will not investigate the Grey District alone.
-
-I have assembled a small team.
-
-Three specialists.
-
-Each one has been selected for a different reason.
-
-Field investigation.
-
-Forensic analysis.
-
-Intelligence and technology.
-
-You will lead them.
-
-What you discover will determine what happens next.`,
-
-    `This is no longer a cold case review.
-
-It is an active investigation.
-
-Forty-seven unresolved cases.
-
-Six years of missing evidence.
-
-One district that was never truly investigated.
-
-Directorate authorization has been granted.
 
 Your investigation begins now.`
+
+
 ];
 
 let briefingIndex = 0;
@@ -249,11 +177,11 @@ function showBriefingSegment() {
 
     setTimeout(function() {
 
-        briefingText.textContent = briefingSegments[briefingIndex];
+        briefingText.textContent = briefingTexts[briefingIndex];
 
         if (briefingProgress) {
             const current = String(briefingIndex + 1).padStart(2, "0");
-            const total = String(briefingSegments.length).padStart(2, "0");
+            const total = String(briefingTexts.length).padStart(2, "0");
 
             briefingProgress.textContent = `${current} / ${total}`;
         }
@@ -272,7 +200,7 @@ function nextBriefing() {
 
     playSelectSound();
 
-    if (briefingIndex < briefingSegments.length - 1) {
+    if (briefingIndex < briefingTexts.length - 1) {
 
         briefingIndex++;
 
@@ -514,5 +442,5 @@ showState(officialIntro);
 // ============================================================
 
 console.log("THE GREY DISTRICT — STORY JS LOADED");
-console.log("Briefing segments:", briefingSegments.length);
+console.log("Briefing segments:", briefingTexts.length);
 console.log("Team members:", teamMembers.length);
