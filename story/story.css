@@ -2430,3 +2430,88 @@ body {
 #teamScene .team-navigation {
     transform: translateX(-14px) !important;
 }
+/* =========================================================
+   TEAM PREVIOUS / NEXT — GLASS BUTTONS WITH GLOW (FINAL)
+   ========================================================= */
+
+#teamScene .team-carousel {
+    width: max-content !important;
+    grid-template-columns: auto 340px auto !important;
+    column-gap: 36px !important;
+    align-items: center !important;
+}
+
+#teamScene .team-nav {
+    width: auto !important;
+    min-width: 0 !important;
+    height: auto !important;
+    padding: 12px 18px !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    white-space: nowrap !important;
+
+    border-radius: 14px !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        0 8px 24px rgba(0, 0, 0, 0.4) !important;
+
+    color: rgba(255, 255, 255, 0.85) !important;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.2s ease !important;
+}
+
+#teamScene .team-nav small {
+    font-size: 9px !important;
+    letter-spacing: 2px !important;
+}
+
+#teamScene .team-nav span {
+    font-size: 16px !important;
+    line-height: 1 !important;
+}
+
+/* Glow on hover (mouse) and on tap (touch) */
+#teamScene .team-nav:hover:not(:disabled),
+#teamScene .team-nav:active:not(:disabled),
+#teamScene .team-nav:focus-visible {
+    background: rgba(255, 255, 255, 0.16) !important;
+    border-color: rgba(255, 255, 255, 0.6) !important;
+    color: #fff !important;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.25),
+        0 0 18px rgba(255, 255, 255, 0.35),
+        0 0 40px rgba(255, 255, 255, 0.15) !important;
+    outline: none !important;
+}
+
+#teamScene .team-nav:active:not(:disabled) {
+    transform: scale(0.96) !important;
+}
+
+#teamScene .team-nav:disabled {
+    opacity: 0.25 !important;
+    box-shadow: none !important;
+}
+
+@media (max-width: 520px) {
+    #teamScene .team-carousel {
+        width: calc(100vw - 16px) !important;
+        grid-template-columns: auto minmax(0, 1fr) auto !important;
+        column-gap: 8px !important;
+    }
+
+    #teamScene .team-nav {
+        padding: 10px 12px !important;
+    }
+}
