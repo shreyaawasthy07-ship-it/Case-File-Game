@@ -20,7 +20,6 @@ const teamCompleteScene = document.getElementById("teamCompleteScene");
 
 const introContinueButton = document.getElementById("introContinueButton");
 const briefingContinueButton = document.getElementById("briefingContinueButton");
-const teamContinueButton = document.getElementById("teamContinueButton");
 const beginInvestigation = document.getElementById("beginInvestigation");
 
 // ------------------------------------------------------------
@@ -35,11 +34,14 @@ const briefingProgress = document.getElementById("briefingProgress");
 // ------------------------------------------------------------
 
 const teamImage = document.getElementById("teamImage");
+const teamMember = document.querySelector("#teamScene .team-member");
 const teamRole = document.getElementById("teamRole");
 const teamName = document.getElementById("teamName");
 const teamDescription = document.getElementById("teamDescription");
 const teamDialogue = document.getElementById("teamDialogue");
 const teamProgress = document.getElementById("teamProgress");
+const teamPreviousButton = document.getElementById("teamPreviousButton");
+const teamNextButton = document.getElementById("teamNextButton");
 
 // ------------------------------------------------------------
 // AUDIO
@@ -173,24 +175,17 @@ function showBriefingSegment() {
 
     if (!briefingText) return;
 
-    briefingText.style.opacity = "0";
+    briefingText.textContent = briefingTexts[briefingIndex];
 
-    setTimeout(function() {
+    if (briefingProgress) {
+        const current = String(briefingIndex + 1).padStart(2, "0");
+        const total = String(briefingTexts.length).padStart(2, "0");
 
-        briefingText.textContent = briefingTexts[briefingIndex];
+        briefingProgress.textContent = `${current} / ${total}`;
+    }
 
-        if (briefingProgress) {
-            const current = String(briefingIndex + 1).padStart(2, "0");
-            const total = String(briefingTexts.length).padStart(2, "0");
-
-            briefingProgress.textContent = `${current} / ${total}`;
-        }
-
-        briefingText.style.opacity = "1";
-
-    }, 180);
+    briefingText.style.opacity = "1";
 }
-
 
 // ============================================================
 // NEXT BRIEFING
@@ -278,48 +273,50 @@ function openTeamScene() {
 // LOAD TEAM MEMBER
 // ============================================================
 
-
 function loadTeamMember() {
 
-    const member = teamMembers[teamIndex];
+    if (!teamMember || !teamImage) return;
 
+    const member = teamMembers[teamIndex];
     if (!member) return;
 
-    // Fade the current content slightly
-    teamImage.style.opacity = "0";
-    teamRole.style.opacity = "0";
-    teamName.style.opacity = "0";
-    teamDescription.style.opacity = "0";
-    teamDialogue.style.opacity = "0";
+    teamMember.classList.remove(
+        "team-transition-in",
+        "team-transition-out"
+    );
 
-    // Change everything almost immediately
-    setTimeout(function() {
+    void teamMember.offsetWidth;
 
-        teamImage.src = member.image;
-        teamImage.alt = member.name;
+    teamMember.classList.add("team-transition-in");
 
+    teamImage.src = member.image;
+    teamImage.alt = member.name;
+
+    if (teamRole) {
         teamRole.textContent = member.role;
-        teamName.textContent = member.name;
-        teamDescription.textContent = member.description;
-        teamDialogue.textContent = `"${member.dialogue}"`;
+    }
 
+    if (teamName) {
+        teamName.textContent = member.name;
+    }
+
+    if (teamDescription) {
+        teamDescription.textContent = member.description;
+    }
+
+    if (teamDialogue) {
+        teamDialogue.textContent = member.dialogue;
+    }
+
+    if (teamProgress) {
         teamProgress.textContent =
             `${String(teamIndex + 1).padStart(2, "0")} / ${String(teamMembers.length).padStart(2, "0")}`;
+    }
 
-        // Bring everything back together
-        requestAnimationFrame(function() {
-
-            teamImage.style.opacity = "1";
-            teamRole.style.opacity = "1";
-            teamName.style.opacity = "1";
-            teamDescription.style.opacity = "1";
-            teamDialogue.style.opacity = "1";
-
-        });
-
-    }, 80);
+    if (teamPreviousButton) {
+        teamPreviousButton.disabled = teamIndex === 0;
+    }
 }
-
 
 // ============================================================
 // NEXT TEAM MEMBER
@@ -331,16 +328,40 @@ function nextTeamMember() {
 
     if (teamIndex < teamMembers.length - 1) {
 
-        teamIndex++;
+        teamMember.classList.remove("team-transition-in");
+        teamMember.classList.add("team-transition-out");
 
-        loadTeamMember();
+        setTimeout(() => {
+
+            teamIndex++;
+
+            loadTeamMember();
+
+        }, 220);
 
     } else {
 
         openTeamComplete();
+
     }
 }
+function previousTeamMember() {
 
+    playSelectSound();
+
+    if (teamIndex <= 0) return;
+
+    teamMember.classList.remove("team-transition-in");
+    teamMember.classList.add("team-transition-out");
+
+    setTimeout(() => {
+
+        teamIndex--;
+
+        loadTeamMember();
+
+    }, 220);
+}
 
 // ============================================================
 // TEAM COMPLETE
@@ -384,8 +405,6 @@ if (introContinueButton) {
     });
 
 }
-
-
 if (briefingContinueButton) {
 
     briefingContinueButton.addEventListener("click", function() {
@@ -396,15 +415,18 @@ if (briefingContinueButton) {
 
 }
 
+if (teamNextButton) {
+    teamNextButton.addEventListener(
+        "click",
+        nextTeamMember
+    );
+}
 
-if (teamContinueButton) {
-
-    teamContinueButton.addEventListener("click", function() {
-
-        nextTeamMember();
-
-    });
-
+if (teamPreviousButton) {
+    teamPreviousButton.addEventListener(
+        "click",
+        previousTeamMember
+    );
 }
 
 
