@@ -1,4 +1,4 @@
-/// ========================================
+// ========================================
 // CHARACTER SELECTION
 // ========================================
 
@@ -290,7 +290,9 @@ closeIdentity.addEventListener(
         );
 
         selectedCharacter = null;
+
         playerName.value = "";
+
         nameError.classList.remove(
             "show"
         );
@@ -378,6 +380,26 @@ confirmIdentity.addEventListener(
             },
             1000
         );
+
+    }
+);
+
+
+// ========================================
+// CONFIRM IDENTITY WITH ENTER KEY
+// ========================================
+
+playerName.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            event.preventDefault();
+
+            confirmIdentity.click();
+
+        }
 
     }
 );
