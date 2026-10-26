@@ -1067,17 +1067,13 @@ body.darker .vignette {
    CARD HEADER
 ======================================== */
 
-.card-header {
 
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: flex-start;
-
-    padding: 22px 28px 18px;
-
+  .card-header {
+    position: relative;
+    padding: 22px 65px 16px 24px;
+    padding-right: 65px;
 }
+
 
 
 .card-agency span {
