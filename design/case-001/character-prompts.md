@@ -188,6 +188,8 @@ Mood: quiet confidence, determined.
 
 ## Done so far
 - ✅ Shivvya · ✅ Director · ✅ Neel · ✅ Maya · ✅ Arjun · ✅ Garvit · ✅ Kabir · ✅ Ishaan · ✅ Pooja · ✅ Ramesh · ✅ Player male/female
-- ✅ Player emotions male (6) · ⬜ Player emotions female (6) · ⬜ Ishaan / Pooja / Ramesh emotion versions
+- ✅ Player emotions male (6) · 🟨 Player emotions female (4 of 6: focused + concerned still to make) · ✅ Ishaan / Pooja / Ramesh emotion versions
+- ✅ Shivvya selfie + ID · ✅ Hub, apartment, café, overbridge, character-bg, home backgrounds · ✅ CCTV b + c · ✅ 4 evidence objects
+- ✅ Gate cabin background · ✅ CCTV a · ✖ Female focused + concerned (not needed)
 
 Save each one in the project folder with any name and tell me. I'll rename it and move it into place.

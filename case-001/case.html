@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>The Grey District — Case File 001</title>
+
+    <link
+        rel="stylesheet"
+        href="./case.css?v=1"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         1. OPENING: A PHONE GOES DARK
+    ========================================== -->
+
+    <section id="openingScreen" class="screen opening-screen is-active">
+
+        <p id="openingTime" class="opening-time"></p>
+
+        <p id="openingLine" class="opening-line"></p>
+
+        <button id="skipOpening" class="skip-button" type="button">
+            SKIP →
+        </button>
+
+    </section>
+
+
+    <!-- =========================================
+         2. CASE SUBJECT CARD
+    ========================================== -->
+
+    <section id="subjectScreen" class="screen subject-screen">
+
+        <div class="subject-card">
+
+            <div class="subject-tab">CASE FILE 001</div>
+
+            <div class="subject-photo">
+                <span class="paper-clip"></span>
+                <img
+                    src="../assets/characters/shivvya/id-photo.png"
+                    alt="Shivvya Nair, ID photo"
+                >
+            </div>
+
+            <dl class="subject-data">
+                <dt>CASE SUBJECT</dt>
+                <dd>SHIVVYA NAIR</dd>
+
+                <dt>AGE / ROLE</dt>
+                <dd>26 | Investigative Journalist</dd>
+
+                <dt>STATUS</dt>
+                <dd class="status-missing">MISSING</dd>
+
+                <dt>LAST KNOWN LOC.</dt>
+                <dd>Sector 14</dd>
+
+                <dt>LAST CONTACT</dt>
+                <dd>22:32, FRI 23 OCT</dd>
+            </dl>
+
+        </div>
+
+        <button id="subjectContinue" class="continue-button" type="button">
+            CONTINUE <strong>→</strong>
+        </button>
+
+    </section>
+
+
+    <!-- =========================================
+         3. NARRATION (one line per tap)
+    ========================================== -->
+
+    <section id="narrationScreen" class="screen narration-screen">
+
+        <img
+            class="narration-photo"
+            src="../assets/characters/shivvya/selfie.png"
+            alt=""
+        >
+
+        <div class="narration-box">
+            <p id="narrationText" class="narration-text"></p>
+            <span class="tap-hint">TAP TO CONTINUE</span>
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         4. DIALOGUE SCENES (handover, end of act)
+    ========================================== -->
+
+    <section id="dialogueScreen" class="screen dialogue-screen">
+
+        <img id="dialogueImage" class="dialogue-image" alt="">
+
+        <div class="dialogue-box">
+            <p id="dialogueSpeaker" class="dialogue-speaker"></p>
+            <p id="dialogueText" class="dialogue-text"></p>
+            <span class="tap-hint">TAP TO CONTINUE</span>
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         5. PERSON OF INTEREST STAMP
+    ========================================== -->
+
+    <section id="stampScreen" class="screen stamp-screen">
+
+        <div class="poi-file">
+            <img
+                src="../assets/characters/kabir/file-photo.png"
+                alt="SI Kabir Rathore, file photo"
+            >
+            <div class="poi-stamp">
+                <span>PERSON OF INTEREST</span>
+                <strong>SI KABIR RATHORE</strong>
+            </div>
+        </div>
+
+        <span class="tap-hint">TAP TO CONTINUE</span>
+
+    </section>
+
+
+    <!-- =========================================
+         6. ACT COMPLETE
+    ========================================== -->
+
+    <section id="completeScreen" class="screen complete-screen">
+
+        <p class="complete-kicker">CASE FILE 001</p>
+
+        <h1>ACT 1 COMPLETE</h1>
+
+        <p class="complete-status">
+            05 Evidence · 03 Statements · 01 Lead ·
+            01 Person of Interest · 01 Unresolved ("…9-04… closed")
+        </p>
+
+        <p class="complete-unlock">
+            UNLOCKED FOR ACT 2: CASE BOARD · INTERROGATION
+        </p>
+
+        <button id="completeContinue" class="continue-button" type="button">
+            BACK TO CASE FILE <strong>→</strong>
+        </button>
+
+    </section>
+
+
+    <!-- =========================================
+         7. INVESTIGATION HUB
+    ========================================== -->
+
+    <section id="hubScreen" class="screen hub-screen">
+
+        <img
+            class="hub-background"
+            src="../assets/backgrounds/hub.png"
+            alt=""
+        >
+
+        <header class="hub-header">
+
+            <div class="hub-title">
+                <span>CASE FILE 001</span>
+                <strong>THE MISSING JOURNALIST</strong>
+            </div>
+
+            <button id="clueButton" class="clue-button" type="button">
+                CLUE
+                <span id="clueCount" class="clue-count">3</span>
+            </button>
+
+        </header>
+
+
+        <nav class="hub-tabs" role="tablist">
+
+            <button class="hub-tab is-active" data-tab="evidence" type="button" role="tab">
+                EVIDENCE
+            </button>
+
+            <button class="hub-tab" data-tab="team" type="button" role="tab">
+                TEAM
+            </button>
+
+            <button class="hub-tab" data-tab="locations" type="button" role="tab">
+                LOCATIONS
+            </button>
+
+            <button class="hub-tab is-locked" data-tab="board" type="button" role="tab">
+                CASE BOARD
+            </button>
+
+        </nav>
+
+
+        <div class="objective-panel">
+            <span>CURRENT OBJECTIVE</span>
+            <p id="objectiveText"></p>
+            <small id="objectiveStep"></small>
+        </div>
+
+
+        <main id="tabPanel" class="tab-panel"></main>
+
+    </section>
+
+
+    <!-- =========================================
+         MODAL + TOAST
+    ========================================== -->
+
+    <div id="modal" class="modal" hidden>
+
+        <div class="modal-card" role="dialog" aria-modal="true">
+
+            <button id="modalClose" class="modal-close" type="button" aria-label="Close">
+                ×
+            </button>
+
+            <div id="modalBody" class="modal-body"></div>
+
+        </div>
+
+    </div>
+
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+
+
+    <!-- =========================================
+         AUDIO
+    ========================================== -->
+
+    <audio
+        id="gameMusic"
+        src="../background-music.mp3"
+        loop
+        preload="auto"
+    ></audio>
+
+    <audio
+        id="selectSound"
+        src="../select-click.mp3"
+        preload="auto"
+    ></audio>
+
+
+    <script src="case.js?v=1"></script>
+
+</body>
+
+</html>

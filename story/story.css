@@ -66,7 +66,8 @@ body {
 
     object-fit: cover;
 
-    object-position: center;
+    /* the director's face sits near the top of the image: anchor high so it isn't cropped */
+    object-position: center 8%;
 
     /* keep the illustration's amber light; just dim it for text contrast */
     filter:
@@ -74,6 +75,7 @@ body {
         contrast(1.05);
 
     transform: scale(1.02);
+    transform-origin: center bottom;
 
 }
 

@@ -406,10 +406,12 @@ function startInvestigation() {
 
     playSelectSound();
 
-    // For now, keep this as the final story screen.
-    // We will connect CASE FILE 001 here next.
+    // short pause so the click sound plays before the page changes
+    setTimeout(function() {
 
-    console.log("Investigation ready to begin.");
+        window.location.href = "../case-001/case.html";
+
+    }, 400);
 
 }
 
