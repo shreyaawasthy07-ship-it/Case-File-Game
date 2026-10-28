@@ -1,5 +1,7 @@
-# CASE FILE 001 — SHIVVYA
+# CASE FILE: SHIVVYA
 ## Act 1: The Missing Journalist — Case Bible
+
+> **Updated by case-bible.md.** The case is now called **CASE FILE: SHIVVYA** ("Case 001" means only the old trafficking case), the setting is **DELHI · SECTOR 14**, the notebook reads **"…001… closed"**, and the buried case is **Child Trafficking Case 001**, not Sealed File 19-047. See section 6 of case-bible.md for every Act 1 change to apply when coding.
 
 > Tutorial act. It teaches the player to **examine evidence → send it to the right specialist → read statements → catch a contradiction.**
 > The case board, timeline and interrogation stay locked until Act 2.

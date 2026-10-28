@@ -10,11 +10,18 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>The Grey District — Case File 001</title>
+    <title>The Grey District — Case File: Shivvya</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet"
+    >
 
     <link
         rel="stylesheet"
-        href="./case.css?v=1"
+        href="./case.css?v=4"
     >
 
 </head>
@@ -24,10 +31,10 @@
 
 
     <!-- =========================================
-         1. OPENING: A PHONE GOES DARK
+         SCENE: OPENING (timestamp + one line)
     ========================================== -->
 
-    <section id="openingScreen" class="screen opening-screen is-active">
+    <section id="openingScreen" class="screen opening-screen">
 
         <p id="openingTime" class="opening-time"></p>
 
@@ -41,14 +48,14 @@
 
 
     <!-- =========================================
-         2. CASE SUBJECT CARD
+         SCENE: CASE SUBJECT CARD (Act 1)
     ========================================== -->
 
     <section id="subjectScreen" class="screen subject-screen">
 
         <div class="subject-card">
 
-            <div class="subject-tab">CASE FILE 001</div>
+            <div class="subject-tab">CASE FILE: SHIVVYA</div>
 
             <div class="subject-photo">
                 <span class="paper-clip"></span>
@@ -69,7 +76,7 @@
                 <dd class="status-missing">MISSING</dd>
 
                 <dt>LAST KNOWN LOC.</dt>
-                <dd>Sector 14</dd>
+                <dd>Sector 14, Delhi</dd>
 
                 <dt>LAST CONTACT</dt>
                 <dd>22:32, FRI 23 OCT</dd>
@@ -85,16 +92,12 @@
 
 
     <!-- =========================================
-         3. NARRATION (one line per tap)
+         SCENE: NARRATION (one line per tap)
     ========================================== -->
 
     <section id="narrationScreen" class="screen narration-screen">
 
-        <img
-            class="narration-photo"
-            src="../assets/characters/shivvya/selfie.png"
-            alt=""
-        >
+        <img id="narrationImage" class="narration-photo" alt="">
 
         <div class="narration-box">
             <p id="narrationText" class="narration-text"></p>
@@ -105,7 +108,7 @@
 
 
     <!-- =========================================
-         4. DIALOGUE SCENES (handover, end of act)
+         SCENE: DIALOGUE
     ========================================== -->
 
     <section id="dialogueScreen" class="screen dialogue-screen">
@@ -122,19 +125,16 @@
 
 
     <!-- =========================================
-         5. PERSON OF INTEREST STAMP
+         SCENE: STAMP (person of interest, closed, solved)
     ========================================== -->
 
     <section id="stampScreen" class="screen stamp-screen">
 
         <div class="poi-file">
-            <img
-                src="../assets/characters/kabir/file-photo.png"
-                alt="SI Kabir Rathore, file photo"
-            >
-            <div class="poi-stamp">
-                <span>PERSON OF INTEREST</span>
-                <strong>SI KABIR RATHORE</strong>
+            <img id="stampImage" alt="">
+            <div id="stampMark" class="poi-stamp">
+                <span id="stampKicker"></span>
+                <strong id="stampTitle"></strong>
             </div>
         </div>
 
@@ -144,75 +144,93 @@
 
 
     <!-- =========================================
-         6. ACT COMPLETE
+         SCENE: REVEAL (important discovery)
     ========================================== -->
 
-    <section id="completeScreen" class="screen complete-screen">
+    <section id="revealScreen" class="screen reveal-screen">
 
-        <p class="complete-kicker">CASE FILE 001</p>
+        <img id="revealImage" class="reveal-image" alt="" hidden>
 
-        <h1>ACT 1 COMPLETE</h1>
+        <div id="revealBox" class="reveal-box">
+            <p id="revealKicker" class="reveal-kicker"></p>
+            <h1 id="revealTitle" class="reveal-title"></h1>
+            <p id="revealSub" class="reveal-sub"></p>
+        </div>
 
-        <p class="complete-status">
-            05 Evidence · 03 Statements · 01 Lead ·
-            01 Person of Interest · 01 Unresolved ("…9-04… closed")
-        </p>
-
-        <p class="complete-unlock">
-            UNLOCKED FOR ACT 2: CASE BOARD · INTERROGATION
-        </p>
-
-        <button id="completeContinue" class="continue-button" type="button">
-            BACK TO CASE FILE <strong>→</strong>
-        </button>
+        <span class="tap-hint">TAP TO CONTINUE</span>
 
     </section>
 
 
     <!-- =========================================
-         7. INVESTIGATION HUB
+         SCENE: PINNED NOTES
+    ========================================== -->
+
+    <section id="notesScreen" class="screen notes-screen">
+
+        <p class="reveal-kicker">SHIVVYA'S NOTES · RECOVERED</p>
+
+        <div id="notesBoard" class="notes-board"></div>
+
+        <span class="tap-hint">TAP TO CONTINUE</span>
+
+    </section>
+
+
+    <!-- =========================================
+         ACT COMPLETE
+    ========================================== -->
+
+    <section id="completeScreen" class="screen complete-screen">
+
+        <p id="completeKicker" class="complete-kicker"></p>
+
+        <h1 id="completeTitle"></h1>
+
+        <p id="completeStatus" class="complete-status"></p>
+
+        <p id="completeUnlock" class="complete-unlock"></p>
+
+        <button id="completeContinue" class="continue-button" type="button"></button>
+
+    </section>
+
+
+    <!-- =========================================
+         INVESTIGATION HUB
     ========================================== -->
 
     <section id="hubScreen" class="screen hub-screen">
 
-        <img
-            class="hub-background"
-            src="../assets/backgrounds/hub.png"
-            alt=""
-        >
+        <img class="hub-background" src="../assets/backgrounds/hub.png" alt="">
 
         <header class="hub-header">
 
             <div class="hub-title">
-                <span>CASE FILE 001</span>
-                <strong>THE MISSING JOURNALIST</strong>
+                <span>CASE FILE: SHIVVYA</span>
+                <strong id="hubAct"></strong>
             </div>
 
-            <button id="clueButton" class="clue-button" type="button">
-                CLUE
-                <span id="clueCount" class="clue-count">3</span>
-            </button>
+            <div class="hub-actions">
+                <button id="verdictButton" class="verdict-button" type="button" hidden>
+                    FINAL VERDICT
+                </button>
+
+                <button id="clueButton" class="clue-button" type="button">
+                    CLUE
+                    <span id="clueCount" class="clue-count">3</span>
+                </button>
+            </div>
 
         </header>
 
 
         <nav class="hub-tabs" role="tablist">
 
-            <button class="hub-tab is-active" data-tab="evidence" type="button" role="tab">
-                EVIDENCE
-            </button>
-
-            <button class="hub-tab" data-tab="team" type="button" role="tab">
-                TEAM
-            </button>
-
-            <button class="hub-tab" data-tab="locations" type="button" role="tab">
-                LOCATIONS
-            </button>
-
-            <button class="hub-tab is-locked" data-tab="board" type="button" role="tab">
-                CASE BOARD
-            </button>
+            <button class="hub-tab is-active" data-tab="evidence" type="button" role="tab">EVIDENCE</button>
+            <button class="hub-tab" data-tab="team" type="button" role="tab">TEAM</button>
+            <button class="hub-tab" data-tab="locations" type="button" role="tab">LOCATIONS</button>
+            <button class="hub-tab" data-tab="board" type="button" role="tab">CASE BOARD</button>
 
         </nav>
 
@@ -221,8 +239,10 @@
             <span>CURRENT OBJECTIVE</span>
             <p id="objectiveText"></p>
             <small id="objectiveStep"></small>
+            <p id="caseStatus" class="case-status"></p>
         </div>
 
+        <div id="hubBanner"></div>
 
         <main id="tabPanel" class="tab-panel"></main>
 
@@ -230,46 +250,139 @@
 
 
     <!-- =========================================
-         MODAL + TOAST
+         INTERROGATION
     ========================================== -->
 
-    <div id="modal" class="modal" hidden>
+    <section id="interrogationScreen" class="screen interrogation-screen">
 
-        <div class="modal-card" role="dialog" aria-modal="true">
+        <img id="interroImage" class="interro-image" alt="">
 
-            <button id="modalClose" class="modal-close" type="button" aria-label="Close">
-                ×
-            </button>
+        <header class="interro-header">
+            <div>
+                <span class="reveal-kicker">INTERROGATION</span>
+                <strong id="interroName"></strong>
+            </div>
+            <div class="interro-meters">
+                <span class="meter-label">COMPOSURE</span>
+                <div id="interroComposure" class="composure"></div>
+                <span id="interroStrikes" class="meter-label"></span>
+            </div>
+            <button id="interroLeave" class="small-button" type="button">LEAVE</button>
+        </header>
 
-            <div id="modalBody" class="modal-body"></div>
+        <div id="interroPanel" class="interro-panel"></div>
+
+    </section>
+
+
+    <!-- =========================================
+         SURVEILLANCE (stakeout)
+    ========================================== -->
+
+    <section id="surveillanceScreen" class="screen surveillance-screen">
+
+        <div class="surv-view">
+            <img id="survView" class="surv-base" alt="">
+            <img id="survFrame" class="surv-frame" alt="">
+            <div class="surv-overlay">
+                <span class="surv-rec">● REC</span>
+                <span class="surv-cam">LONG LENS · NORTHGATE · PLOT 7</span>
+            </div>
+        </div>
+
+        <div class="surv-controls">
+            <p id="survStatus" class="surv-status"></p>
+            <div id="survStrip" class="surv-strip"></div>
+            <div class="surv-buttons">
+                <button id="survCapture" class="capture-button" type="button">CAPTURE</button>
+                <button id="survLeave" class="small-button" type="button">LEAVE</button>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FINAL VERDICT
+    ========================================== -->
+
+    <section id="verdictScreen" class="screen verdict-screen">
+
+        <div id="verdictCard" class="verdict-card">
+
+            <div class="verdict-head">
+                <span class="reveal-kicker">FINAL VERDICT</span>
+                <span id="verdictProgress" class="meter-label"></span>
+            </div>
+
+            <h1 id="verdictQuestion" class="verdict-question"></h1>
+
+            <div id="verdictOptions" class="verdict-options"></div>
+
+            <p class="meter-label">SUPPORT YOUR ANSWER: SELECT THE EVIDENCE</p>
+
+            <div id="verdictSupport" class="verdict-support"></div>
+
+            <p id="verdictMessage" class="verdict-message"></p>
+
+            <div class="verdict-buttons">
+                <button id="verdictSubmit" class="continue-button" type="button">SUBMIT <strong>→</strong></button>
+                <button id="verdictBack" class="small-button" type="button">BACK TO CASE FILE</button>
+            </div>
 
         </div>
 
+    </section>
+
+
+    <!-- =========================================
+         ENDING
+    ========================================== -->
+
+    <section id="endingScreen" class="screen ending-screen">
+
+        <div id="endingLines" class="ending-lines"></div>
+
+        <div id="endingStatus" class="ending-status"></div>
+
+        <div id="endingFinal" class="ending-final">
+            <p class="ending-closed">CASE CLOSED</p>
+            <p class="ending-question">Or is it?</p>
+            <div class="ending-buttons">
+                <a class="continue-button" href="../index.html">RETURN TO THE DISTRICT <strong>→</strong></a>
+                <a class="small-button" href="case.html?restart">PLAY AGAIN</a>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         MODAL · TOAST · FLASH
+    ========================================== -->
+
+    <div id="modal" class="modal" hidden>
+        <div class="modal-card" role="dialog" aria-modal="true">
+            <button id="modalClose" class="modal-close" type="button" aria-label="Close">×</button>
+            <div id="modalBody" class="modal-body"></div>
+        </div>
     </div>
 
-
     <div id="toast" class="toast" aria-live="polite"></div>
+
+    <div id="flash" class="flash"></div>
 
 
     <!-- =========================================
          AUDIO
     ========================================== -->
 
-    <audio
-        id="gameMusic"
-        src="../background-music.mp3"
-        loop
-        preload="auto"
-    ></audio>
-
-    <audio
-        id="selectSound"
-        src="../select-click.mp3"
-        preload="auto"
-    ></audio>
+    <audio id="gameMusic" src="../background-music.mp3" loop preload="auto"></audio>
+    <audio id="selectSound" src="../select-click.mp3" preload="auto"></audio>
 
 
-    <script src="case.js?v=1"></script>
+    <script src="acts.js?v=2"></script>
+    <script src="engine.js?v=2"></script>
 
 </body>
 
